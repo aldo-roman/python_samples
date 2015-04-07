@@ -10,5 +10,13 @@ Client: sends connections request to port 1234
 
 # Running
 
-Please run both servers first to enable the listening on ports.
-Client server just makes a request and receives a response, should be runned after servers are listening.
+Run both servers first to enable the listening on ports.
+Client server simply makes a request and receives a response. Therefore, should be run after servers are listening.
+
+In different processes (terminal tabs, for example), run:
+
+```$ python server_socket.py```
+
+```$ python mirror_socket.py```
+
+```$ python client_socket.py```
