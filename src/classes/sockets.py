@@ -5,11 +5,12 @@ __author__ = 'Aldo Roman Nurena'
 
 
 class Socket:
-    """ A simple class for managing sockets"""
 
-    def __init__(self):
+    @staticmethod
+    def get_instance():
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            return s
         except socket.error:
             print 'Failed to create socket'
             sys.exit()
