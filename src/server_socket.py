@@ -1,4 +1,4 @@
-import socket
+from src.classes.socket import Socket
 
 __author__ = 'Aldo Roman Nurena'
 
@@ -11,7 +11,7 @@ def server_socket():
     host = 'localhost'
     port = 1234
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s = Socket()
     s.bind((host, port))
     s.listen(2)
 
@@ -24,7 +24,7 @@ def server_socket():
         content = conn.recv(64)
 
         # connect to mirror socket
-        m = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        m = Socket()
         m.connect(('localhost',4321))
         m.send(content)
         print m.recv(64)

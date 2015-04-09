@@ -1,4 +1,4 @@
-import socket
+from src.classes.socket import Socket
 
 __author__ = 'Aldo Roman Nurena'
 
@@ -8,7 +8,7 @@ def __main__():
 
 
 def client_socket():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s = Socket()
     s.connect(('localhost',1234))
 
     s.send("I'm client socket!")

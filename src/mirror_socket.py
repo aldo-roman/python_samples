@@ -1,4 +1,4 @@
-import socket
+from src.classes.socket import Socket
 
 __author__ = 'Aldo Roman Nurena'
 
@@ -11,7 +11,7 @@ def server_socket():
     host = 'localhost'
     port = 4321
 
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s = Socket()
     s.bind((host, port))
     s.listen(2)
 
