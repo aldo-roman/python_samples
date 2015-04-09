@@ -1,17 +1,17 @@
-from src.classes.socket import Socket
+from src.classes.sockets import Socket
 
 __author__ = 'Aldo Roman Nurena'
 
 
 def __main__():
-    server_socket()
-
-
-def server_socket():
     host = 'localhost'
     port = 4321
 
-    s = Socket()
+    server_socket(host, port)
+
+
+def server_socket(host, port):
+    s = Socket.get_instance()
     s.bind((host, port))
     s.listen(2)
 

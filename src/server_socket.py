@@ -1,17 +1,17 @@
-from src.classes.socket import Socket
+from src.classes.sockets import Socket
 
 __author__ = 'Aldo Roman Nurena'
 
 
 def __main__():
-    server_socket()
-
-
-def server_socket():
     host = 'localhost'
     port = 1234
 
-    s = Socket()
+    server_socket(host, port)
+
+
+def server_socket(host, port):
+    s = Socket.get_instance()
     s.bind((host, port))
     s.listen(2)
 
@@ -24,9 +24,13 @@ def server_socket():
         content = conn.recv(64)
 
         # connect to mirror socket
-        m = Socket()
+        m = Socket.get_instance()
         m.connect(('localhost',4321))
-        m.send(content)
+
+        # m.send(len(content))     # send content length
+        # m.recv(1)               # receive OK or ERROR
+        m.sendall(content)      # send actual data
+
         print m.recv(64)
         m.close()
 
