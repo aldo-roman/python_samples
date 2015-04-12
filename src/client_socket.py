@@ -9,12 +9,17 @@ def __main__():
 
 
 def client_socket():
-    s = Socket.get_instance()
-    s.connect(('localhost',1234))
-    print "Connected to server."
+    """
+    Receive text from user and sends to main server.
+    :return:
+    """
+
     print "Write some text: (line by line)"
 
     while True:
+        s = Socket.get_instance()
+        s.connect(('localhost',1234))
+
         line = stdin.readline()
         # s.send(line.length)
         s.send(line)
