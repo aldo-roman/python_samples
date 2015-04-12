@@ -23,9 +23,14 @@ class Socket:
         print 'Socket Created'
 
     @staticmethod
-    # host   default host ip
-    # port   default port
     def get_host_data(host, port):
+        """
+        Reads host and port from std input.
+        Set a default host and port if no data provided.
+        :param host: default host ip
+        :param port: default port
+        :return: tuple of host and port
+        """
         sys.stdout.write("Enter host ip [localhost]:")
         line = sys.stdin.readline()
 
