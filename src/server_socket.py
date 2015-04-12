@@ -42,6 +42,12 @@ def server_socket((host, port), (host_m,port_m)):
         print m.recv(64)
         m.close()
 
+        if content.strip() == "EOF":
+            print "EOF"
+            conn.send("Good bye!")
+            conn.close()
+            break
+
         # response to client
         print content
         conn.send("I'm server socket. Thank you for connecting.\n")

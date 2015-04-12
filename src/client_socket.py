@@ -27,4 +27,7 @@ def client_socket():
         print(response)
         s.close()
 
+        if line.strip() == "EOF":
+            break
+
 __main__()

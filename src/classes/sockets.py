@@ -31,13 +31,13 @@ class Socket:
         :param port: default port
         :return: tuple of host and port
         """
-        sys.stdout.write("Enter ", server," server ip [localhost]:")
+        sys.stdout.write("Enter " + server + " server ip [" + host + "]:")
         line = sys.stdin.readline()
 
         if line.strip(): # not empty string
             host = line
 
-        sys.stdout.write("Enter host port [1234]:")
+        sys.stdout.write("Enter " + server + " server port [" + str(port) + "]:")
         line = sys.stdin.readline()
 
         if line.strip(): # not empty string

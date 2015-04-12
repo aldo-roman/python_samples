@@ -25,8 +25,14 @@ def server_socket(host, port):
     while True:
         conn, address = s.accept()
         print address, "Now connected"
-        print conn.recv(64)
-        conn.send("I'm mirror socket. I just read the request.")
+        content = conn.recv(64)
+        print content
+
+        if content.strip() == "EOF":
+            conn.send("Good bye!")
+            break
+        else:
+            conn.send("I'm mirror socket. I just read the request.")
         conn.close()
 
 
