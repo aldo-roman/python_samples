@@ -4,18 +4,23 @@ __author__ = 'Aldo Roman Nurena'
 
 
 def __main__():
-    host = 'localhost'
-    port = 4321
-
+    (host, port) = Socket.get_host_data('localhost', 4321)
     server_socket(host, port)
 
 
 def server_socket(host, port):
+    """
+    Instances a mirror socket that receives data
+    send by client from the main server
+    :param host: host to bind the socket
+    :param port: port to listen to
+    :return:
+    """
     s = Socket.get_instance()
     s.bind((host, port))
     s.listen(2)
 
-    print "Listening to port ", port
+    print "Listening on %(host)s:%(port)s" % {"host":host, "port":port}
 
     while True:
         conn, address = s.accept()
