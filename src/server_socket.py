@@ -1,21 +1,28 @@
+from sys import stdin
 from src.classes.sockets import Socket
 
 __author__ = 'Aldo Roman Nurena'
 
 
 def __main__():
-    host = 'localhost'
-    port = 1234
-
+    (host, port) = Socket.get_host_data('localhost', 1234)
     server_socket(host, port)
 
 
 def server_socket(host, port):
+    """
+    Instances the main server.
+    Receives data from client, forward the data to
+    a mirror server and replies the client.
+    :param host: host to bind socket
+    :param port: port to listen to
+    :return:
+    """
     s = Socket.get_instance()
     s.bind((host, port))
     s.listen(2)
 
-    print "Listening to port ", port
+    print "Listening on %(host)s:%(port)s" % {"host":host, "port":port}
 
     while True:
         # accept connections from client
