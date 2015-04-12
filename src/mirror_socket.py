@@ -4,7 +4,7 @@ __author__ = 'Aldo Roman Nurena'
 
 
 def __main__():
-    (host, port) = Socket.get_host_data('localhost', 4321)
+    (host, port) = Socket.get_host_data('localhost', 4321, "mirror")
     server_socket(host, port)
 
 

@@ -6,10 +6,11 @@ __author__ = 'Aldo Roman Nurena'
 
 def __main__():
     (host, port) = Socket.get_host_data('localhost', 1234)
-    server_socket(host, port)
+    (host_m, port_m) = Socket.get_host_data('localhost', 4321, "mirror")
+    server_socket((host, port), (host_m,port_m))
 
 
-def server_socket(host, port):
+def server_socket((host, port), (host_m,port_m)):
     """
     Instances the main server.
     Receives data from client, forward the data to
@@ -32,7 +33,7 @@ def server_socket(host, port):
 
         # connect to mirror socket
         m = Socket.get_instance()
-        m.connect(('localhost',4321))
+        m.connect((host_m,port_m))
 
         # m.send(len(content))     # send content length
         # m.recv(1)               # receive OK or ERROR
