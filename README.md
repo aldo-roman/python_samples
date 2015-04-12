@@ -28,3 +28,7 @@ In different processes (terminal tabs, for example), run:
 - [ ] threaded servers: main server and mirror server run only one thread, but a high request period would take the system down.
 - [ ] end of program: main server should end if received a "end of file" request or something similar.
 - [X] configuration: most parameters (ip addresses, ports, messages) are fixed.
+
+# Other enhancements
+- [X] methods descriptions: comment major methods to quickly understand their behaviour.
+- [ ] software testing: add automated software testing
