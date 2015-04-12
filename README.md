@@ -27,4 +27,4 @@ In different processes (terminal tabs, for example), run:
 - [ ] response length: code assumes a maximum of 64 bytes, but a dynamic header with message length should be provided.
 - [ ] threaded servers: main server and mirror server run only one thread, but a high request period would take the system down.
 - [ ] end of program: main server should end if received a "end of file" request or something similar.
-- [ ] configuration: most parameters (ip addresses, ports, messages) are fixed.
+- [X] configuration: most parameters (ip addresses, ports, messages) are fixed.
